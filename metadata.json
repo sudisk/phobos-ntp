@@ -1,10 +1,10 @@
 {
-  "author": "",
+  "author": "david levray",
   "dependencies": [],
   "license": "",
-  "name": "EVIS042-template_project",
+  "name": "phobos-ntp",
   "operatingsystem_support": [],
-  "project_page": "",
+  "project_page": "https://github.com/dl-puppet/phobos-ntp",
   "requirements": [],
   "source": "",
   "summary": "",
