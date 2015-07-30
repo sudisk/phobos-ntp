@@ -25,8 +25,5 @@ class ntp::service inherits ntp
         #status               => $service_status,
         #stop                 => $service_stop,
         }
-    }
-      
-
-  
+    } 
 }

@@ -13,21 +13,21 @@ class ntp
   #$package_uninstall_options       = $ntp::params::package_uninstall_options,              
       
   ######################################## SERVICES ############################################
-	$service_manage                    = $ntp::params::service_manage,
-	$service_name                      = $ntp::params::service_name, 
-	$service_ensure                    = $ntp::params::service_ensure,            
-	#$service_binary                   = $ntp::params::service_binary,
-	$service_enable                    = $ntp::params::service_enable,  
-	#$service_flags                    = $ntp::params::service_flags,  
-	$service_hasrestart                = $ntp::params::service_hasrestart,   
-	$service_hasstatus                 = $ntp::params::service_hasstatus,  
-	#$service_manifest                 = $ntp::params::service_manifest,   
-	$service_path                      = $ntp::params::service_path,     
-	#$service_pattern                  = $ntp::params::service_pattern,    
-	#$service_restart                  = $ntp::params::service_restart,   
-	#$service_start                    = $ntp::params::service_star,   
-	#$service_status                   = $ntp::params::service_status,   
-	#$service_stop                     = $ntp::params::service_stop,    
+  $service_manage                    = $ntp::params::service_manage,
+  $service_name                      = $ntp::params::service_name, 
+  $service_ensure                    = $ntp::params::service_ensure,            
+  #$service_binary                   = $ntp::params::service_binary,
+  $service_enable                    = $ntp::params::service_enable,  
+  #$service_flags                    = $ntp::params::service_flags,  
+  $service_hasrestart                = $ntp::params::service_hasrestart,   
+  $service_hasstatus                 = $ntp::params::service_hasstatus,  
+  #$service_manifest                 = $ntp::params::service_manifest,   
+  $service_path                      = $ntp::params::service_path,     
+  #$service_pattern                  = $ntp::params::service_pattern,    
+  #$service_restart                  = $ntp::params::service_restart,   
+  #$service_start                    = $ntp::params::service_star,   
+  #$service_status                   = $ntp::params::service_status,   
+  #$service_stop                     = $ntp::params::service_stop,    
 
   ###################################### CONFIG_FILES ########################################## 
   $file_name                         = $ntp::params::file_name,    
@@ -82,7 +82,6 @@ class ntp
 
 {
    class{'ntp::install': } ->
-   #include ntp::install
    class{'ntp::config': } ~>
    class{'ntp::service': } ->
    Class["ntp"]

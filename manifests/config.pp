@@ -3,8 +3,8 @@
 class ntp::config inherits ntp
 {
   
-  file { '$file_name':
-        path                  => $file_path,
+  file { $file_name :
+        	  path                  => $file_path,
 			  ensure                => $file_ensure,
 			  backup                => $file_backup,
 			  checksum              => $file_checksum,
@@ -36,66 +36,4 @@ class ntp::config inherits ntp
 			  #validate_replacement  => $file_validate_replacement,
 			  require 				 => Class['ntp::install'],
 			  }
-
-
-	  #file { '/etc/ssh/sshd_config':
-  #  ensure  => present,
-  #  owner   => 'root',
-  #  group   => 'root',
-  #  mode    => '0644',
-    # Template uses $permit_root_login and $ssh_users
-  #  content => template('ssh/sshd_config.erb'),
-  #}
-  
-  
-   #define resolve(nameserver1, nameserver2, domain, search) {
-   #   $str = "search $search
-   #       domain $domain
-   #       nameserver $nameserver1
-   #       nameserver $nameserver2
-   #       "
-   #   file { "/etc/resolv.conf":
-   #     content => "$str",
-   #   }
-   #}
-
-
-  #if $keys_enable {
-  #      $directory = dirname($keys_file)
-  #      file { $directory:
-  #        ensure  => directory,
-  #        owner   => 0,
-  #        group   => 0,
-  #        mode    => '0755',
-  #       recurse => true,
-  #      }
-  #    }    
-      
-  #ensure_resource ('user',$module::settings['user'],{ 'ensure'=> 'present' })
-
-  #if $module::service_file =~ /(?i:service)/ {
-  #  file { $module::service_file:
-  #    ensure  => "present",
-  #    path    => "${module::service_dir}/${module::service_file}",
-  #    mode    => '0644',
-  #    content => template("module/${module::service_file}.erb"),
-  #  }~>
-  #  exec { "${module_name}-reload-systemd":
-  #    path        => ["/bin","/usr/bin"],
-  #    command     => "systemctl daemon-reload",
-  #    refreshonly   => true,
-  #  }
-  #}
-
-  #if $module::service_file =~ /(?i:init)/ {
-  #  file { $module::service_file:
-  #    ensure  => 'present',
-  #    path    => "${module::service_dir}/module",
-  #    mode    => '0755',
-  #    content => "puppet:///modules/module/${module::service_file}",
-  #  }
-  #}
-	
-
-  
 }

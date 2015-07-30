@@ -2,14 +2,7 @@
 
 class ntp::params
 {
-  
-  case $::osfamily {
-    
-    'Debian': {
-     ## More parameters defined here
-    }
-    
-	default: {
+
       ######################################## PACKAGES ############################################
       $package_name                     ='ntp'            # Le nom du paquet
       $package_ensure                   ='present'        # Etat du paquet: numéro de version, present (also called installed), absent, purged, held, latest. 
@@ -74,12 +67,6 @@ class ntp::params
 	  $file_sourceselect                = 'first'         # par défaut, la première source valable est la seule utilisée, mais si ce paramètre est réglé sur tout , puis toutes les sources valides aura tous leurs contenus copiés sur le système local. (first, all.)
 	  $file_target                      = ''              # La cible pour créer un lien. Actuellement, les liens symboliques sont le seul type pris en charge. Cet attribut est mutuellement exclusive avec 'source' et 'content'
 	  #$file_validate_cmd               = ''              # Une commande pour valider la syntaxe du fichier avant de le remplacer. (ex: /usr/sbin/apache2 -t -f %) <= remplacer eulement si le test a renvoyé true.
-	  #$file_validate_replacement       = ''              # La chaîne de remplacement dans un validate_cmd qui sera remplacé par un nom de fichier d'entrée.
-	}
-       
-}
-  
-  
-  
+	  #$file_validate_replacement       = ''              # La chaîne de remplacement dans un validate_cmd qui sera remplacé par un nom de fichier d'entrée. 
   
 }
