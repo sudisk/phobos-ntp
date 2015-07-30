@@ -1,6 +1,6 @@
 # définition des paramètres par défaut 
 
-class template_project::params
+class ntp::params
 {
   
   case $::osfamily {

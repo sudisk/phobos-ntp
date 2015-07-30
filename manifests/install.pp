@@ -1,6 +1,6 @@
 # installation du logiciel
 
-class template_project::install inherits template_project
+class ntp::install inherits ntp
 {
         package { '$package_name':      
 				ensure                => $package_ensure, 
