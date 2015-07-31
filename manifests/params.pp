@@ -36,8 +36,8 @@ class ntp::params
 	  ###################################### CONFIG_FILES ########################################## 
 	  #peut gérer des fichiers normaux, les répertoires et les liens symboliques.
 	  #Le contenu des fichiers peuvent être gérés directement avec l'attribut 'content', ou téléchargés à partir d'une source distante via l'attribut 'source'.
-      $file_name                        = ''              # 
-	  $file_path                        = ''              # Si omis, la valeur par défaut correspondra au titre (file_name).     
+      $file_name                        = 'ntp.conf'      #
+      $file_path                        = '/etc/ntp.conf' # Si omis, la valeur par défaut correspondra au titre (file_name).     
 	  $file_ensure                      = ''              # Spécifier le type gérer:  fichiers, répertoires ou liens symboliques. Valeur possible: present, absent, file, directory, and link.    
 	  $file_backup                      = '.puppet-bak'   # le contenu du fichier doit être sauvegardé avant d'être remplacé.   
 	  $file_checksum                    = 'md5'           # type de contrôle à utiliser pour déterminer si vous voulez remplacer le contenu d'un fichier: md5, md5lite, sha256, sha256lite, mtime, ctime, none. 
