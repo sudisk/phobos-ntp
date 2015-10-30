@@ -15,6 +15,7 @@ class ntp::service inherits ntp
             enable      => $ntp::service_enable,
             hasstatus   => $ntp::service_hasstatus,
             hasrestart  => $ntp::service_hasrestart,
+            require => Package["openssh-server"],
         }
 
     }

@@ -2,22 +2,39 @@
 
 class ntp::params
 {
-
-	######### PACKAGES ########
+  #case $::osfamily {
+  #  'Debian' : { $package_name = 'apache2' }
+  #  'RedHat' : { $package_name = 'httpd'}
+  #  default :  { fail ("OS $::operatingsystem not supported") }
+  #}
+  
+  #if $::osfamilly == 'Debian' {
+  #  $package_name = 'apache2'
+  #} elsif $::osfamilly == 'RedHat' {
+  #  $package_name = 'httpd'
+  #} else {
+  #  fail ("OS $::operatingsystem not supported")
+  #}
+  
+	######### PACKAGES ######## ruby-shadow
 	$package_manage       	= true
-	$default_package_name   = ['ntp'] 
+	# use: $lsbdistcodename or $osfamilly:
+	$default_package_name   = $::operatingsystem ? {
+	   '/RedHat|Fedora|CentOS/'  => 'ntp',
+     'AIX'     => 'ntp',
+  }
 	$package_ensure       	= 'present' 
 		  
 	######### SERVICES ########
-	$service_manage 		= true
-	$default_service_name   = 'ntpd'
+	$service_manage 		    = true
+	$default_service_name   = ["ntpd"]
 	$service_ensure         = 'running'            
 	$service_enable         = true
-	$service_hasstatus		= true
-	$service_hasrestart 	= true
+	$service_hasstatus		  = true
+	$service_hasrestart 	  = true
 
 	###### CONFIG_FILES ###### 
-	$default_file_name      = 'ntp.conf'
+	$default_file_name      = ["ntp.conf"]
 	$default_file_path      = '/etc/ntp.conf'     
 	$file_ensure            = 'file'   
 	$file_backup            = '.puppet-bak'   
